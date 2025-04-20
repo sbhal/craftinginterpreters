@@ -1,4 +1,24 @@
 #!/usr/bin/env bash
 
+
+#brew tap dart-lang/dart
+#brew install dart-lang/dart/dart@2.19
+#export PATH=$(brew --prefix dart-lang/dart/dart@2.19)/bin:$PATH
+
+# make get
+# make jlox # Required after every change to the source code.
+# make java_chapters
+# make test
+# make test_jlox  # The final version of jlox.
+# make test_java  # Every chapter's version of jlox.
+
 script_dir=$(dirname "$0")
 java -cp ${script_dir}/build/java com.craftinginterpreters.lox.Lox $@
+
+
+# replace all occurrences of chap##_ with chap##_
+# cd util/intellij
+# find . -type f -name "*.iml" -exec perl -i -pe 's/chap(\d+)_/sprintf("chap%02d_", $1-1)/ge' {} \;
+
+# For files with the pattern chap##_
+# rename 's/chap(\d+)_/sprintf("chap%02d_", $1-1)/e' chap*_*
